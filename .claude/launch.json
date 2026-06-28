@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "spreadshirt-preview",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["--yes", "serve", "/Users/marcmarx/Documents/Claude/Projects/spreadshirt-webseite", "-l", "4180"],
+      "port": 4180
+    }
+  ]
+}
