@@ -144,6 +144,7 @@ a { color: inherit; }
 .shop-card h3 { margin: 0 0 .3rem; font-size: 1.15rem; }
 .shop-card p { margin: 0; color: #c7c9cc; font-size: .9rem; }
 .shop-card .chev { color: #8ab4f8; }
+.shop-card .shop-url { margin-top: .6rem; color: #8ab4f8; font-size: .85rem; font-weight: 600; letter-spacing: .01em; word-break: break-all; }
 
 /* ---------- Footer ---------- */
 .site-footer { background: var(--surface-dark); color: #cbd5e1; }
