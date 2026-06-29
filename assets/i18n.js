@@ -3,7 +3,7 @@
    - Deutsch ist die Original-/Fallback-Sprache (steht im HTML).
    - Auto-Erkennung über Browser-/Gerätesprache, Fallback Englisch.
    - Auswahl wird in localStorage gemerkt.
-   - Die 37 Designs werden per Bild-Dateiname (Basename) übersetzt,
+   - Die 42 Designs werden per Bild-Dateiname (Basename) übersetzt,
      damit das HTML der Galerie unangetastet bleibt.
    ============================================================ */
 (function () {
@@ -16,19 +16,19 @@
   var META = {
     de: {
       title: 'cre8yourself — One-Line & Linien-Designs für Shirts, Hoodies & mehr',
-      desc:  'Alle 37 Designs von cre8yourself auf einen Blick: minimalistische One-Line- und Linien-Motive – Monstera, Bialetti-Espresso, Rennrad, Sonne & mehr – in Schwarz, Weiß und Regenbogen. Auf T-Shirts, Hoodies, Stickern & Tassen.'
+      desc:  'Alle 42 Designs von cre8yourself auf einen Blick: minimalistische One-Line- und Linien-Motive – Monstera, Bialetti-Espresso, Rennrad, Sonne & mehr – in Schwarz, Weiß und Regenbogen. Auf T-Shirts, Hoodies, Stickern & Tassen.'
     },
     en: {
       title: 'cre8yourself — one-line & line-art designs for shirts, hoodies & more',
-      desc:  'All 37 cre8yourself designs at a glance: minimalist one-line and line-art motifs – monstera, Bialetti espresso, road bike, sun & more – in black, white and rainbow. On T-shirts, hoodies, stickers & mugs.'
+      desc:  'All 42 cre8yourself designs at a glance: minimalist one-line and line-art motifs – monstera, Bialetti espresso, road bike, sun & more – in black, white and rainbow. On T-shirts, hoodies, stickers & mugs.'
     },
     fr: {
       title: 'cre8yourself — designs une ligne & art linéaire pour t-shirts, hoodies & plus',
-      desc:  'Les 37 designs de cre8yourself en un coup d’œil : motifs minimalistes une ligne et art linéaire – monstera, espresso Bialetti, vélo de route, soleil & plus – en noir, blanc et arc-en-ciel. Sur t-shirts, hoodies, stickers & mugs.'
+      desc:  'Les 42 designs de cre8yourself en un coup d’œil : motifs minimalistes une ligne et art linéaire – monstera, espresso Bialetti, vélo de route, soleil & plus – en noir, blanc et arc-en-ciel. Sur t-shirts, hoodies, stickers & mugs.'
     },
     es: {
       title: 'cre8yourself — diseños de una línea y arte lineal para camisetas, sudaderas y más',
-      desc:  'Los 37 diseños de cre8yourself de un vistazo: motivos minimalistas de una línea y arte lineal – monstera, espresso Bialetti, bici de carreras, sol y más – en negro, blanco y arcoíris. En camisetas, sudaderas, pegatinas y tazas.'
+      desc:  'Los 42 diseños de cre8yourself de un vistazo: motivos minimalistas de una línea y arte lineal – monstera, espresso Bialetti, bici de carreras, sol y más – en negro, blanco y arcoíris. En camisetas, sudaderas, pegatinas y tazas.'
     }
   };
 
@@ -44,7 +44,7 @@
       'cta.toShop': 'Go to shop',
       'hero.ctaDesigns': 'View designs',
       'coll.eyebrow': 'The collection',
-      'coll.title': 'All 37 designs at a glance',
+      'coll.title': 'All 42 designs at a glance',
       'coll.sub': 'Every motif is available as a print for T-shirts, hoodies, mugs, stickers and more. Click a design to put it on the product of your choice in the shop.',
       'grp.plants': 'Plants & Urban Jungle',
       'grp.plants.sub': 'Botanical monstera and leaf motifs for the urban-jungle look.',
@@ -77,7 +77,7 @@
       'cta.toShop': 'Voir la boutique',
       'hero.ctaDesigns': 'Voir les designs',
       'coll.eyebrow': 'La collection',
-      'coll.title': 'Les 37 designs en un coup d’œil',
+      'coll.title': 'Les 42 designs en un coup d’œil',
       'coll.sub': 'Chaque motif est disponible en impression sur t-shirts, hoodies, mugs, stickers et plus. Clique sur un design pour le personnaliser sur le produit de ton choix dans la boutique.',
       'grp.plants': 'Plantes & Urban Jungle',
       'grp.plants.sub': 'Des motifs botaniques de monstera et de feuilles pour un look urban jungle.',
@@ -110,7 +110,7 @@
       'cta.toShop': 'Ir a la tienda',
       'hero.ctaDesigns': 'Ver diseños',
       'coll.eyebrow': 'La colección',
-      'coll.title': 'Los 37 diseños de un vistazo',
+      'coll.title': 'Los 42 diseños de un vistazo',
       'coll.sub': 'Cada motivo está disponible como estampado para camisetas, sudaderas, tazas, pegatinas y más. Haz clic en un diseño para ponerlo en el producto que quieras en la tienda.',
       'grp.plants': 'Plantas & Urban Jungle',
       'grp.plants.sub': 'Motivos botánicos de monstera y hojas para el look urban jungle.',
@@ -232,6 +232,15 @@
     'mp-322195445': { en: { n: 'Cycling Roadbike Lettering', d: 'Dynamic road bike with ROADBIKE lettering in a sporty line look. A cool gift for road racers, roadbike fans and anyone who loves speed on the road.' },
                       fr: { n: 'Cycling Roadbike Lettrage', d: 'Vélo de route dynamique avec lettrage ROADBIKE au look linéaire sportif. Cadeau cool pour les coureurs cyclistes, les fans de roadbike et tous ceux qui aiment la vitesse sur la route.' },
                       es: { n: 'Cycling Roadbike Tipografía', d: 'Bici de carreras dinámica con tipografía ROADBIKE en un look lineal deportivo. Un regalo genial para ciclistas de carretera, fans del roadbike y todos los que aman la velocidad en la carretera.' } },
+    'mp-322240880-rb': { en: { n: 'Bicycle Rainbow', d: 'Stylish bicycle motif in a clean line look in bold rainbow colours. The gift for cyclists, cycling fans and Pride fans. On T-shirt, hoodie, jersey and more.' },
+                      fr: { n: 'Vélo Arc-en-ciel', d: 'Motif de vélo stylé au look linéaire épuré aux couleurs arc-en-ciel vives. Le cadeau pour les cyclistes, les fans de cyclisme et de la Pride. Sur t-shirt, hoodie, maillot et plus.' },
+                      es: { n: 'Bicicleta Arcoíris', d: 'Motivo de bicicleta con un look lineal limpio en intensos colores arcoíris. El regalo para ciclistas, fans del ciclismo y del Orgullo. En camiseta, sudadera, maillot y más.' } },
+    'mp-322195445-rb': { en: { n: 'Cycling Roadbike Lettering Rainbow', d: 'Dynamic road bike with ROADBIKE lettering in a sporty line look in bold rainbow colours. A cool gift for road racers, roadbike fans and Pride fans. On T-shirt, hoodie, jersey and more.' },
+                      fr: { n: 'Cycling Roadbike Lettrage Arc-en-ciel', d: 'Vélo de route dynamique avec lettrage ROADBIKE au look linéaire sportif aux couleurs arc-en-ciel vives. Cadeau cool pour les coureurs cyclistes, les fans de roadbike et de la Pride. Sur t-shirt, hoodie, maillot et plus.' },
+                      es: { n: 'Cycling Roadbike Tipografía Arcoíris', d: 'Bici de carreras dinámica con tipografía ROADBIKE en un look lineal deportivo en intensos colores arcoíris. Un regalo genial para ciclistas de carretera, fans del roadbike y del Orgullo. En camiseta, sudadera, maillot y más.' } },
+    'mp-322182580': { en: { n: 'Cycling Rainbow Lettering', d: 'Cyclist with CYCLING lettering as dynamic line art in bold rainbow colours. A cool gift for road cyclists, cycling fans and Pride fans. On T-shirt, hoodie, jersey and more.' },
+                      fr: { n: 'Cycling Lettrage Arc-en-ciel', d: 'Cycliste avec lettrage CYCLING en art linéaire dynamique aux couleurs arc-en-ciel vives. Cadeau cool pour les cyclistes sur route, les fans de cyclisme et de la Pride. Sur t-shirt, hoodie, maillot et plus.' },
+                      es: { n: 'Cycling Tipografía Arcoíris', d: 'Ciclista con tipografía CYCLING en arte lineal dinámico en intensos colores arcoíris. Un regalo genial para ciclistas de carretera, fans del ciclismo y del Orgullo. En camiseta, sudadera, maillot y más.' } },
 
     /* --- Himmel, Weltall & Natur --- */
     'mp-356506059': { en: { n: 'Sun Horizon Line Art White', d: 'Sun over the horizon as minimalist line art in white. A calm nature motif for sun worshippers and lovers of sea and summer. Ideal on dark shirts, hoodies and mugs.' },
@@ -246,6 +255,12 @@
     'mp-332397742': { en: { n: 'Rocket Line Art', d: 'Rocket as minimalist line art, ready for lift-off. A cool space motif for sci-fi fans, little astronauts and dreamers. On T-shirt, hoodie, mug and more.' },
                       fr: { n: 'Fusée Art Linéaire', d: 'Fusée en art linéaire minimaliste, prête à décoller. Motif spatial cool pour les fans de science-fiction, les petits astronautes et les rêveurs. Sur t-shirt, hoodie, mug et plus.' },
                       es: { n: 'Cohete Arte Lineal', d: 'Cohete en arte lineal minimalista, listo para despegar. Un motivo espacial genial para fans de la ciencia ficción, pequeños astronautas y soñadores. En camiseta, sudadera, taza y más.' } },
+    'mp-332397742-rb': { en: { n: 'Rocket Rainbow Line Art', d: 'Rocket as minimalist line art in bold rainbow colours, ready for lift-off. A cool space motif for sci-fi fans, little astronauts and Pride fans. On T-shirt, hoodie, mug and more.' },
+                      fr: { n: 'Fusée Arc-en-ciel Art Linéaire', d: 'Fusée en art linéaire minimaliste aux couleurs arc-en-ciel vives, prête à décoller. Motif spatial cool pour les fans de science-fiction, les petits astronautes et les fans de la Pride. Sur t-shirt, hoodie, mug et plus.' },
+                      es: { n: 'Cohete Arcoíris Arte Lineal', d: 'Cohete en arte lineal minimalista en intensos colores arcoíris, listo para despegar. Un motivo espacial genial para fans de la ciencia ficción, pequeños astronautas y fans del Orgullo. En camiseta, sudadera, taza y más.' } },
+    'mp-332397745-rb': { en: { n: 'Spaceship Rainbow Line Art', d: 'Spaceship as minimalist line art in a circle in bold rainbow colours. A galactic motif for space fans, would-be astronauts and Pride fans. On T-shirt, hoodie, mug and more.' },
+                      fr: { n: 'Vaisseau Spatial Arc-en-ciel Art Linéaire', d: 'Vaisseau spatial en art linéaire minimaliste dans un cercle aux couleurs arc-en-ciel vives. Motif galactique pour les fans de l’espace, les apprentis astronautes et les fans de la Pride. Sur t-shirt, hoodie, mug et plus.' },
+                      es: { n: 'Nave Espacial Arcoíris Arte Lineal', d: 'Nave espacial en arte lineal minimalista dentro de un círculo en intensos colores arcoíris. Motivo galáctico para fans del espacio, aspirantes a astronauta y fans del Orgullo. En camiseta, sudadera, taza y más.' } },
     'mp-330970136': { en: { n: 'Sunrise Mountains Line Art', d: 'Sunrise over the mountains as minimalist line art. A calm nature motif for hikers, mountain and outdoor fans. On T-shirt, hoodie, mug and more.' },
                       fr: { n: 'Lever de Soleil Montagnes Art Linéaire', d: 'Lever de soleil sur les montagnes en art linéaire minimaliste. Motif nature apaisant pour les randonneurs et les fans de montagne et d’outdoor. Sur t-shirt, hoodie, mug et plus.' },
                       es: { n: 'Amanecer Montañas Arte Lineal', d: 'Amanecer sobre las montañas en arte lineal minimalista. Motivo natural y tranquilo para senderistas y fans de la montaña y el aire libre. En camiseta, sudadera, taza y más.' } },
