@@ -166,3 +166,7 @@ a { color: inherit; }
   .steps { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; gap: 1.5rem; }
 }
+
+/* Eingebetteter Spreadshop */
+.spreadshop-embed { min-height: 400px; }
+.spreadshop-embed > a { color: var(--ink-soft, #888); text-decoration: underline; }

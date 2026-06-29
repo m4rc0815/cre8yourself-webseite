@@ -444,12 +444,9 @@
       <h2 class="band-title">Mein Shop</h2>
       <p class="section-sub">Alle Designs gibt's gebündelt in meinem Shop – in allen Farben und auf allen Produkten. Verkauf, Druck und Versand erfolgen über <strong>Spreadshirt</strong>.</p>
     </div>
-    <div class="shop-grid">
-      <a class="shop-card" href="https://cre8yourself.myspreadshop.de/" target="_blank" rel="noopener">
-        <h3>cre8yourself <span class="chev">→</span></h3>
-        <p>Alle Motive in allen Farben – auf T-Shirts, Hoodies, Tassen, Stickern und mehr. Verkauf &amp; Versand über Spreadshirt.</p>
-        <p class="shop-url">cre8yourself.myspreadshop.de</p>
-      </a>
+    <!-- Eingebetteter Spreadshop -->
+    <div id="myShop" class="spreadshop-embed">
+      <a href="https://cre8yourself.myspreadshop.de">cre8yourself</a>
     </div>
   </div>
 </section>
@@ -472,6 +469,19 @@
     </div>
   </div>
 </footer>
+
+<!-- ===================== Spreadshop Client ===================== -->
+<script>
+  var spread_shop_config = {
+    shopName: 'cre8yourself',
+    locale: 'de_DE',
+    prefix: 'https://cre8yourself.myspreadshop.de',
+    baseId: 'myShop'
+  };
+</script>
+<script type="text/javascript"
+        src="https://cre8yourself.myspreadshop.de/shopfiles/shopclient/shopclient.nocache.js">
+</script>
 
 </body>
 </html>
