@@ -59,6 +59,9 @@ a { color: inherit; }
 .main-nav a { font: 600 .92rem "DM Sans", sans-serif; color: var(--ink-soft); text-decoration: none; padding: .42rem .85rem; border-radius: var(--radius-pill); transition: background .15s, color .15s; }
 .main-nav a:hover { background: var(--soft); color: var(--accent-dark); }
 .main-nav a.is-active { background: var(--accent); color: #fff; }
+.nav-pinterest { display: inline-flex; align-items: center; gap: .4rem; }
+.nav-pinterest svg { flex: none; }
+.main-nav a.nav-pinterest:hover { background: #e60023; color: #fff; }
 .nav-toggle { display: none; font-size: 1.55rem; cursor: pointer; line-height: 1; user-select: none; }
 .nav-toggle-cb { display: none; }
 
