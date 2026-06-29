@@ -89,32 +89,56 @@ a { color: inherit; }
 .section-sub { color: var(--ink-soft); max-width: 60ch; margin: 0; }
 .band-dark .section-sub { color: #c7c9cc; }
 
-/* ---------- Galerie ---------- */
-.design-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.25rem; }
+/* ---------- Galerie (kompakt: nur Bilder, viele pro Reihe) ---------- */
+.design-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(132px, 1fr)); gap: .6rem; }
 .design-tile {
-  display: flex; flex-direction: column; text-decoration: none; color: inherit;
-  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
-  overflow: hidden; box-shadow: var(--shadow);
+  display: block; text-decoration: none; color: inherit;
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius-sm);
+  overflow: hidden; box-shadow: var(--shadow); cursor: pointer;
   transition: border-color .15s, box-shadow .15s, transform .15s;
 }
-.design-tile:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); border-color: transparent; }
+.design-tile:hover, .design-tile:focus-visible { box-shadow: var(--shadow-lg); transform: translateY(-3px); border-color: transparent; outline: none; }
 .tile-canvas {
-  aspect-ratio: 1 / 1; display: grid; place-items: center; padding: 16%;
+  aspect-ratio: 1 / 1; display: grid; place-items: center; padding: 12%;
   background: var(--surface-dark);
   background-image: radial-gradient(circle at 50% 38%, #2c2d31 0%, #1a1b1d 78%);
 }
 .tile-canvas img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 6px 14px rgba(0,0,0,.45)); }
 .tile-canvas--light { background: #f4f3ef; background-image: radial-gradient(circle at 50% 38%, #ffffff 0%, #eceae3 82%); }
 .tile-canvas--light img { filter: drop-shadow(0 6px 12px rgba(0,0,0,.14)); }
-.tile-body { padding: .85rem 1rem 1rem; display: flex; flex-direction: column; gap: .5rem; }
-.tile-name { font: 800 1.08rem/1.15 "Figtree", sans-serif; margin: 0; }
-.tile-desc {
-  margin: 0; color: var(--ink-soft); font-size: .82rem; line-height: 1.45;
-  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+/* Text-Block bleibt im DOM (SEO + liefert die Daten für die Vorschau), wird aber nicht angezeigt */
+.tile-body { display: none; }
+
+/* ---------- Popover-Vorschau ---------- */
+.design-popover {
+  position: fixed; z-index: 60; width: 300px; max-width: calc(100vw - 24px);
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+  box-shadow: 0 18px 48px rgba(60,64,67,.28); overflow: hidden;
+  opacity: 0; transform: scale(.96); pointer-events: none;
+  transition: opacity .14s ease, transform .14s ease;
 }
-.tile-foot { display: flex; align-items: center; justify-content: space-between; gap: .5rem; margin-top: .2rem; }
-.tile-cta { font: 700 .85rem "DM Sans", sans-serif; color: var(--accent-dark); }
-.design-tile:hover .tile-cta { text-decoration: underline; text-underline-offset: 3px; }
+.design-popover.is-visible { opacity: 1; transform: scale(1); }
+.pop-canvas {
+  aspect-ratio: 1 / 1; display: grid; place-items: center; padding: 13%;
+  background: var(--surface-dark);
+  background-image: radial-gradient(circle at 50% 38%, #2c2d31 0%, #1a1b1d 78%);
+}
+.pop-canvas--light { background: #f4f3ef; background-image: radial-gradient(circle at 50% 38%, #ffffff 0%, #eceae3 82%); }
+.pop-canvas img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 8px 18px rgba(0,0,0,.45)); }
+.pop-canvas--light img { filter: drop-shadow(0 8px 16px rgba(0,0,0,.16)); }
+.pop-body { padding: .9rem 1.05rem 1.05rem; display: flex; flex-direction: column; gap: .5rem; }
+.pop-name { font: 800 1.1rem/1.15 "Figtree", sans-serif; margin: 0; }
+.pop-desc { margin: 0; color: var(--ink-soft); font-size: .84rem; line-height: 1.45; }
+.pop-cta { font: 700 .9rem "DM Sans", sans-serif; color: var(--accent-dark); text-decoration: none; margin-top: .1rem; }
+.pop-cta:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+/* Backdrop nur im Touch-Modus (Vorschau als Overlay) */
+.pop-backdrop {
+  position: fixed; inset: 0; z-index: 55; background: rgba(20,20,22,.45);
+  opacity: 0; pointer-events: none; transition: opacity .16s ease;
+}
+.pop-backdrop.is-visible { opacity: 1; pointer-events: auto; }
+.design-popover.is-modal { pointer-events: auto; width: 320px; }
 
 /* ---------- Badges (Farb-Variante) ---------- */
 .badge { display: inline-flex; align-items: center; gap: .35rem; font: 600 .72rem "DM Sans", sans-serif; padding: .26rem .6rem; border-radius: var(--radius-pill); white-space: nowrap; }

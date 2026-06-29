@@ -470,6 +470,126 @@
   </div>
 </footer>
 
+<!-- ===================== Galerie-Vorschau (Hover-Popover) ===================== -->
+<script>
+(function () {
+  var tiles = Array.prototype.slice.call(document.querySelectorAll('.design-tile'));
+  if (!tiles.length) return;
+
+  var canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  var DELAY = 400; // ms Verweilen, bis die Vorschau aufgeht
+
+  // Popover + Backdrop einmalig anlegen
+  var pop = document.createElement('div');
+  pop.className = 'design-popover';
+  pop.setAttribute('role', 'dialog');
+  pop.setAttribute('aria-label', 'Design-Vorschau');
+  pop.innerHTML =
+    '<div class="pop-canvas"><img alt=""></div>' +
+    '<div class="pop-body">' +
+      '<h3 class="pop-name"></h3>' +
+      '<div class="pop-badge"></div>' +
+      '<p class="pop-desc"></p>' +
+      '<a class="pop-cta" target="_blank" rel="noopener">Im Shop gestalten →</a>' +
+    '</div>';
+  var backdrop = document.createElement('div');
+  backdrop.className = 'pop-backdrop';
+  document.body.appendChild(backdrop);
+  document.body.appendChild(pop);
+
+  var popImg    = pop.querySelector('img');
+  var popCanvas = pop.querySelector('.pop-canvas');
+  var popName   = pop.querySelector('.pop-name');
+  var popBadge  = pop.querySelector('.pop-badge');
+  var popDesc   = pop.querySelector('.pop-desc');
+  var popCta    = pop.querySelector('.pop-cta');
+
+  var timer = null;
+
+  function fill(tile) {
+    var img    = tile.querySelector('.tile-canvas img');
+    var canvas = tile.querySelector('.tile-canvas');
+    var nameEl = tile.querySelector('.tile-name');
+    var badgeEl = tile.querySelector('.badge');
+    var descEl = tile.querySelector('.tile-desc');
+    popImg.src = img.getAttribute('src');
+    popImg.alt = img.getAttribute('alt') || '';
+    popCanvas.className = 'pop-canvas' + (canvas.classList.contains('tile-canvas--light') ? ' pop-canvas--light' : '');
+    popName.textContent = nameEl ? nameEl.textContent : (img.getAttribute('alt') || '');
+    popBadge.innerHTML  = badgeEl ? badgeEl.outerHTML : '';
+    popDesc.textContent = descEl ? descEl.textContent : '';
+    popCta.setAttribute('href', tile.getAttribute('href'));
+  }
+
+  function placeNear(tile) {
+    pop.classList.remove('is-modal');
+    // opacity:0 / scale(.96) / pointer-events:none beeinflussen offsetWidth/Height nicht
+    var pw = pop.offsetWidth, ph = pop.offsetHeight;
+    var r  = tile.getBoundingClientRect();
+    var vw = document.documentElement.clientWidth;
+    var vh = document.documentElement.clientHeight;
+    var left = r.left + r.width / 2 - pw / 2;
+    left = Math.max(10, Math.min(left, vw - pw - 10));
+    var top = r.top - ph - 12;          // bevorzugt oberhalb der Kachel
+    if (top < 10) top = r.bottom + 12;  // sonst darunter
+    if (top + ph > vh - 10) top = Math.max(10, vh - ph - 10);
+    pop.style.left = left + 'px';
+    pop.style.top  = top + 'px';
+  }
+
+  function showNear(tile) {
+    fill(tile);
+    placeNear(tile);
+    void pop.offsetWidth;               // Reflow erzwingen → CSS-Transition spielt sauber
+    pop.classList.add('is-visible');
+  }
+
+  function showModal(tile) {
+    fill(tile);
+    pop.classList.add('is-modal');
+    pop.style.left = '50%';
+    pop.style.top  = '50%';
+    pop.style.transform = 'translate(-50%, -50%) scale(.96)';
+    backdrop.classList.add('is-visible');
+    void pop.offsetWidth;               // Startzustand committen
+    pop.classList.add('is-visible');
+    pop.style.transform = 'translate(-50%, -50%) scale(1)';
+  }
+
+  function hide() {
+    if (timer) { clearTimeout(timer); timer = null; }
+    pop.classList.remove('is-visible');
+    pop.classList.remove('is-modal');
+    pop.style.transform = '';
+    backdrop.classList.remove('is-visible');
+  }
+
+  tiles.forEach(function (tile) {
+    if (canHover) {
+      tile.addEventListener('mouseenter', function () {
+        if (timer) clearTimeout(timer);
+        timer = setTimeout(function () { showNear(tile); }, DELAY);
+      });
+      tile.addEventListener('mouseleave', hide);
+      // Klick auf die Kachel führt regulär zum Shop (Standard-<a>)
+    } else {
+      // Touch: erster Tipp öffnet die Vorschau, der Shop-Link in der Vorschau führt weiter
+      tile.addEventListener('click', function (e) {
+        e.preventDefault();
+        showModal(tile);
+      });
+    }
+  });
+
+  if (canHover) {
+    window.addEventListener('scroll', hide, { passive: true });
+    window.addEventListener('resize', hide);
+  }
+  backdrop.addEventListener('click', hide);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') hide(); });
+})();
+</script>
+
 <!-- ===================== Spreadshop Client ===================== -->
 <script>
   var spread_shop_config = {
