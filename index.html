@@ -4,6 +4,22 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="p:domain_verify" content="ccb7f9e04bc7a268eab4afe1ccd49170"/>
+
+<!-- ===================== Google Analytics 4 ===================== -->
+<!-- DSGVO: GA4 laedt ERST nach Klick auf "Akzeptieren". Deine Mess-ID hier eintragen: -->
+<script>window.GA4_ID = 'G-KG0MDQVL2V';</script>
+<style>
+  #ga-consent{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:9999;
+    max-width:520px;width:calc(100% - 32px);box-sizing:border-box;background:#fff;color:#1a1a1a;
+    border:1px solid #e2e2e2;border-radius:14px;box-shadow:0 8px 30px rgba(0,0,0,.15);
+    padding:16px 18px;font-family:'DM Sans',system-ui,sans-serif;font-size:14px;line-height:1.5;display:none}
+  #ga-consent.show{display:block}
+  #ga-consent p{margin:0 0 12px}
+  #ga-consent .ga-btns{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap}
+  #ga-consent button{border:0;border-radius:9px;padding:9px 16px;font:inherit;font-weight:600;cursor:pointer}
+  #ga-consent .ga-accept{background:#1a1a1a;color:#fff}
+  #ga-consent .ga-decline{background:#f0f0f0;color:#1a1a1a}
+</style>
 <title>cre8yourself — One-Line & Linien-Designs für Shirts, Hoodies & mehr</title>
 <meta name="description" content="Alle 42 Designs von cre8yourself auf einen Blick: minimalistische One-Line- und Linien-Motive – Monstera, Bialetti-Espresso, Rennrad, Sonne & mehr – in Schwarz, Weiß und Regenbogen. Auf T-Shirts, Hoodies, Stickern & Tassen.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -664,6 +680,39 @@
 </script>
 <script type="text/javascript"
         src="https://cre8yourself.myspreadshop.de/shopfiles/shopclient/shopclient.nocache.js">
+</script>
+
+<!-- ===================== Cookie-Einwilligung + GA4-Loader ===================== -->
+<div id="ga-consent" role="dialog" aria-live="polite" aria-label="Cookie-Einwilligung">
+  <p>Wir nutzen Google Analytics, um anonym zu verstehen, wie die Seite genutzt wird. Mit „Akzeptieren“ stimmst du dem zu.</p>
+  <div class="ga-btns">
+    <button type="button" class="ga-decline" id="ga-decline">Ablehnen</button>
+    <button type="button" class="ga-accept" id="ga-accept">Akzeptieren</button>
+  </div>
+</div>
+<script>
+(function(){
+  var KEY='cre8_ga_consent';
+  function loadGA(){
+    if(!window.GA4_ID || window.GA4_ID.indexOf('XXXX')>-1) return; // Mess-ID noch nicht gesetzt
+    var s=document.createElement('script');
+    s.async=true; s.src='https://www.googletagmanager.com/gtag/js?id='+window.GA4_ID;
+    document.head.appendChild(s);
+    window.dataLayer=window.dataLayer||[];
+    window.gtag=function(){dataLayer.push(arguments);};
+    gtag('js', new Date());
+    gtag('config', window.GA4_ID);
+  }
+  var banner=document.getElementById('ga-consent');
+  var choice=null;
+  try{ choice=localStorage.getItem(KEY); }catch(e){}
+  if(choice==='granted'){ loadGA(); }
+  else if(choice!=='denied'){ banner.classList.add('show'); }
+  var ok=document.getElementById('ga-accept');
+  var no=document.getElementById('ga-decline');
+  if(ok) ok.addEventListener('click',function(){ try{localStorage.setItem(KEY,'granted');}catch(e){} banner.classList.remove('show'); loadGA(); });
+  if(no) no.addEventListener('click',function(){ try{localStorage.setItem(KEY,'denied');}catch(e){} banner.classList.remove('show'); });
+})();
 </script>
 
 </body>
